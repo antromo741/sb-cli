@@ -4,7 +4,7 @@ require_relative "sb/cli"
 #basically code envirnoment 
 
 # dependencies 
-#require "pry"
+require "pry"
 #require "httparty"
 
 
