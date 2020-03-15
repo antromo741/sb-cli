@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-#require 'lib/sb/cli'
+require './lib/sb/cli'
 
 #SB::CLI.new.call
