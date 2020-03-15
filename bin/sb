@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require './lib/sb/cli'
+require "sb"
 
-#SB::CLI.new.call
+#SmashCLI::CLI.new.call

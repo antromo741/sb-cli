@@ -8,7 +8,7 @@ require_relative "sb/cli"
 #require "httparty"
 
 
-module CohortCLI
+module SmashCLI
   class Error < StandardError; end
   # Your code goes here...
 end
