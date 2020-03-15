@@ -6,8 +6,9 @@
  
  
  class SmashCLI::API 
+   
     def self.get_characters
-     # @characters_hash = HTTPparty.get(https://kuroganehammer.com/Ultimate/Snake)
+     # @characters_hash = HTTParty.get(https://api.kuroganehammer.com/api/characters/name/mario)
    
    #binding.pry
    end

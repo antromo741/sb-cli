@@ -1,6 +1,6 @@
 require "sb/version"
 require "sb/cli"
-require "sb/api"
+require_relative "sb/api"
 #basically code envirnoment 
 
 # dependencies 
