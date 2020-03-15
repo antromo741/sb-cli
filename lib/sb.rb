@@ -1,4 +1,4 @@
-require "sb/version"
+require "sb/cli/version"
 
 module SB
 
