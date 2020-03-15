@@ -4,3 +4,13 @@
 #call custom class . new method 
 # send those back to our cli 
  
+ 
+ class SmashCLI::API 
+    def self.get_characters
+      @characters_hash = HTTPparty.get(https://kuroganehammer.com/Ultimate/Snake)
+   
+   binding.pry
+   end
+   
+   
+ end

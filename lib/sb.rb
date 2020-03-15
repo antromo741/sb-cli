@@ -5,7 +5,7 @@ require_relative "sb/cli"
 
 # dependencies 
 require "pry"
-#require "httparty"
+require "httparty"
 
 
 module SmashCLI

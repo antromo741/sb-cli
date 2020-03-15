@@ -12,17 +12,17 @@ class SmashCLI::CLI
   
   def display_info
     puts "please make a selection"
-    @objects.each do |obj|
-      puts "#{obj.name} -#{obj.age}"
-    end
+   # @objects.each do |obj|
+    #  puts "#{obj.name} -#{obj.age}"
+    #end
     
     input = gets.strip.downcase
    
     if input == "player"
       puts "============Charachters-list============"
       puts "LIST OF PLAYERS/OBJECTS"
-      @obj = @objects[0]
-      puts "#{obj.salary}, #{obj.upcoming_film}"      
+      #@obj = @objects[0]
+     # puts "#{obj.salary}, #{obj.upcoming_film}"      
       display_info
       
     elsif input == "game"
