@@ -24,13 +24,17 @@ class SmashCLI::CLI
     if input == "player"
       puts "============Charachters-list============"
       puts "LIST OF PLAYERS/OBJECTS"
+      display_info
+      
     elsif input == "game"
       puts "============GAME-LIST============"
       puts "LIST OF GAMES/OBJECTS"
+      display_info
       
     else
-      puts "try again"
+      puts "goodbye"
   end
 end
-  
+  #make a restart method for wrong inputs
+  #set exit to exit menu instead of goodbye
 end
