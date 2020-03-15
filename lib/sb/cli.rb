@@ -1,8 +1,7 @@
-require "sb/cli/version"
-
-module Sb
-  module Cli
-    class Error < StandardError; end
-    # Your code goes here...
+#cli controller
+#class SB::CLI
+  
+  def call
+    puts "hello world:"
   end
-end
+#end

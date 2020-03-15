@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "hello world"
+#require 'lib/sb/cli'
+
+#SB::CLI.new.call
