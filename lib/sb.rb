@@ -1,10 +1,11 @@
-#require_relative "sb/cli/version"
-#require_relative './sb-cli/cli'
+require_relative "sb/version"
+require_relative 'sb/cli'
 
+#basically code envirnoment 
 
 # dependencies 
-require "pry"
-require "httparty"
+#require "pry"
+#require "httparty"
 
 
 module CohortCLI
