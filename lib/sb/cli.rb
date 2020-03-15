@@ -1,7 +1,7 @@
 #cli controller
 #class SB::CLI
   
-  def call
+ # def call
     puts "hello world:"
-  end
+  #end
 #end

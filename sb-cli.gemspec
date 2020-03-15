@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "sb//cli/version"
+require "sb//version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sb-cli"
-  spec.version       = Sb::Cli::VERSION
+  spec.version       = Cli::VERSION
   spec.authors       = ["'careful-illustrator-5297'"]
   spec.email         = ["'anthonyroma741@gmail.com'"]
 
