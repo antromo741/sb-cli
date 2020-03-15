@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "sb"
 
-#SmashCLI::CLI.new.call
+SmashCLI::CLI.new.call
