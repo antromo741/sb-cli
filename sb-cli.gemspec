@@ -5,7 +5,7 @@ require "sb//version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sb-cli"
-  spec.version       = Cli::VERSION
+  spec.version       = SmashCLI::VERSION
   spec.authors       = ["'careful-illustrator-5297'"]
   spec.email         = ["'anthonyroma741@gmail.com'"]
 
