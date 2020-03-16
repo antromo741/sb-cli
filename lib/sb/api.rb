@@ -14,7 +14,7 @@
    char_obj = {
      name: @characters_hash["Name"],
      game: @characters_hash["Game"],
-     moves: @characters_hash["Moves"]
+    # moves: @characters_hash["Moves"]
      
    }
    SmashCLI::Character.new(char_obj)

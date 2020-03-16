@@ -1,11 +1,10 @@
 class SmashCLI::Character
-  
+  attr_accessor :name, :game #:move
   @@all =[]
   
-  def initialize(hash)
-  
-  save
-  binding.pry
+ def initialize(hash)
+    hash.each {|key, value| self.send(("#{key}="), value)}
+    save 
   end
 
 
@@ -14,7 +13,7 @@ class SmashCLI::Character
   end
   
   def save
-    
+    @@all << self
   end
 
 end

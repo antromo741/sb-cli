@@ -5,7 +5,8 @@ class SmashCLI::CLI
     puts "hello world:"
     puts "GETTING DATA FROM API..... PLEASE WAIT OR SOMETHING"
     @data = SmashCLI::API.get_characters
-    
+    @objects = SmashCLI::Character.all
+    binding.pry
     display_info
   end
   
