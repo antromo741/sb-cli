@@ -1,20 +1,20 @@
-class SmashCLI::CHARACTER 
+class SmashCLI::Character
   
   @@all =[]
   
-  Def initialize(hash)
+  def initialize(hash)
   
   save
+  binding.pry
   end
 
 
   def self.all 
-  
+  @@all
   end
   
   def save
     
   end
 
-  
 end

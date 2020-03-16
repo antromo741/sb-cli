@@ -3,7 +3,7 @@ class SmashCLI::CLI
   
   def call
     puts "hello world:"
-    puts "GETTING DATA FROM API..... PLEASE DANCE"
+    puts "GETTING DATA FROM API..... PLEASE WAIT OR SOMETHING"
     @data = SmashCLI::API.get_characters
     
     display_info
