@@ -2,9 +2,11 @@
 class SmashCLI::CLI
   
   def call
-    puts "hello world:"
-    puts "GETTING DATA FROM API..... PLEASE WAIT OR SOMETHING"
-    @data = SmashCLI::API.get_characters
+    puts "SmashBros Character Select"
+    puts " /\/\/\/\/\/\/\/\/\/\/\/\/\/ "
+    puts "Choose you character!"
+    input = gets.strip.downcase
+    @data = SmashCLI::API.get_characters(input)
     @objects = SmashCLI::Character.all
     binding.pry
     display_info

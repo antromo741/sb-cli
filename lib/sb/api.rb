@@ -7,8 +7,8 @@
  
  class SmashCLI::API 
    
-    def self.get_characters
-      @characters_hash = HTTParty.get("https://api.kuroganehammer.com/api/characters/name/snake")
+    def self.get_characters(input)
+      @characters_hash = HTTParty.get("https://api.kuroganehammer.com/api/characters/name/#{input}")
    
    
    char_obj = {
