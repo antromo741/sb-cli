@@ -49,7 +49,7 @@ class PokeCLI::CLI
      @pokemon = PokeCLI::Pokemon.all[choice.to_i-1] 
        
           
-        puts "#{@pokemon.name}. #{@pokemon.id}. #{@pokemon.base_experience}. #{@pokemon.height} . #{@pokemon.weight}"
+        puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
    
     
   elsif input == "quit"
@@ -59,7 +59,10 @@ class PokeCLI::CLI
   end
     
   end 
-
+  
+    def display_stats
+   end
+  
   def quit 
     puts "Goodbye"
   end 
