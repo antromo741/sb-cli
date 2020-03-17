@@ -19,6 +19,8 @@ class PokeCLI::CLI
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
     battle 
   end
+  
+  
   def battle
     #pokedexsymbol
      puts "pokedex open"
@@ -33,26 +35,22 @@ class PokeCLI::CLI
   #
   
   def pokedex
-  #  
-  # @objects = PokeCLI::Pokemon.all
-  
-   puts "choose a mon yo"
-    input = gets.strip.downcase
-    PokeCLI::API.get_pokemon(input)
-    puts "Is this the pokemon you were looking for?!"
+    puts "Heres a list of every pokemon"
     PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
     puts "#{index}. #{poke.name}"
     end
-    puts "If so, please type Y or N"
+    puts "To find out more information choose the id number"
+    puts " to exit type quick"
+    puts " invalid response should boot out"
     input = gets.strip.downcase
     if input == "y"
         PokeCLI::Pokemon.all.each.with_index(1) do |pokemon, index|
         puts "#{index}. #{pokemon.name}. #{pokemon.id}"
     end
-  elsif input == "n"
-    battle
-  else
+  elsif input == "quit"
     quit
+  else
+    battle
   end
     
   end 
