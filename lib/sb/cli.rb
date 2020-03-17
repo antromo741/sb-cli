@@ -11,7 +11,10 @@ class PokeCLI::CLI
   #menu displays a pokeball or something 
   #battle lol 
   #heal 
-  #def pre_battle
+  
+  
+  
+#  def pre_battle
     #pokemon_array = [1,2,3,4,5]
    # pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)
   #  battle 
@@ -28,27 +31,30 @@ class PokeCLI::CLI
     quit
   end
   end
-  #@data = PokeCLI::API.get_pokemon(input)
-   # @objects = PokeCLI::Pokemon.all
-  
+  #
   
   def pokedex
-    puts "choose a mon yo"
-    PokeCLI::Pokemon.all.each.with_index(1) do |pokemon, index|
-      puts "#{index}. #{pokemon.name}"
+  #  
+  # @objects = PokeCLI::Pokemon.all
+  
+   puts "choose a mon yo"
+    input = gets.strip.downcase
+    PokeCLI::API.get_pokemon(input)
+    puts "Is this the pokemon you were looking for?!"
+    PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
+    puts "#{index}. #{poke.name}"
     end
-        input = gets.strip.downcase
-        if ("1".."10").include?(input)
-          
-    elsif (input == "quit")
-      quit
-      
-    elsif (input == "menu")
-      start
-    else 
-      puts "Oops"
-      pokedex
-    end 
+    puts "If so, please type Y or N"
+    input = gets.strip.downcase
+    if input == "y"
+        PokeCLI::Pokemon.all.each.with_index(1) do |pokemon, index|
+        puts "#{index}. #{pokemon.name}"
+    end
+  elsif input == "n"
+    battle
+  else
+    quit
+  end
     
   end 
 
