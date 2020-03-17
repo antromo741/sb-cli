@@ -88,11 +88,11 @@ class PokeCLI::CLI
      #wait method
      puts "Wanna see another pokemon?"
      puts "for another mon press p"
-     puts " To go back into the main menu hit A"
+     puts " To go back into the main menu hit a"
      input = gets.strip.downcase
-     if input = "y"
+     if input == "p"
        pokedex
-       elsif input == p
+       elsif input == "a"
        battle
        elsif input == quit
        quit
@@ -107,7 +107,7 @@ class PokeCLI::CLI
      puts "for another move press m"
      puts " To go back into the main menu hit A"
      input = gets.strip.downcase
-     if input = "m"
+     if input == "m"
        pokedex
        elsif input == a
        battle
