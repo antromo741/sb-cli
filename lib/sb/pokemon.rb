@@ -16,7 +16,7 @@ class PokeCLI::Pokemon
   end
   
   def save
-    @@all << self
+    self.class.all << self
   end
 
 end
