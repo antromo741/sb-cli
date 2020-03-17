@@ -53,7 +53,7 @@ class PokeCLI::CLI
     input = gets.strip.downcase
     
     if ("1".."10").include?(input)
-      choice == input.to_i
+      choice = input.to_i
   elsif input == "quit"
     quit
   else
@@ -108,8 +108,8 @@ class PokeCLI::CLI
      puts " To go back into the main menu hit A"
      input = gets.strip.downcase
      if input == "m"
-       pokedex
-       elsif input == a
+       poke_moves
+       elsif input == "a"
        battle
        elsif input == quit
        quit
