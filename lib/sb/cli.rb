@@ -40,13 +40,18 @@ class PokeCLI::CLI
     puts "#{index}. #{poke.name}"
     end
     puts "To find out more information choose the id number"
-    puts " to exit type quick"
+    puts " to exit type quit"
     puts " invalid response should boot out"
     input = gets.strip.downcase
-    if input == "y"
-        PokeCLI::Pokemon.all.each.with_index(1) do |pokemon, index|
-        puts "#{index}. #{pokemon.name}. #{pokemon.id}"
-    end
+    
+    if ("1".."10").include?(input)
+      choice = input.to_i
+     @pokemon = PokeCLI::Pokemon.all[choice.to_i-1] 
+       
+          
+        puts "#{@pokemon.name}. #{@pokemon.id}"
+  
+    
   elsif input == "quit"
     quit
   else
