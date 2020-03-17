@@ -17,6 +17,8 @@ class PokeCLI::CLI
   def pre_battle
     pokemon_array = [1,2,3,4,5]
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
+    moves_array = [1,2,3,4,5]
+    moves_array.map { |index| PokeCLI::API.get_moves(index)}
     battle 
   end
   
