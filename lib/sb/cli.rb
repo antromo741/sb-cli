@@ -38,7 +38,7 @@ class PokeCLI::CLI
     quit
   else 
     puts "not an option back in the main menu"
-    battle
+    #battle
   end
   end
   
@@ -87,8 +87,18 @@ class PokeCLI::CLI
      puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
      #wait method
      puts "Wanna see another pokemon?"
+     puts "for another mon press p"
+     puts " To go back into the main menu hit A"
+     if input = "y"
+       pokedex
+       elsif input == p
+       battle
+       elsif input == quit
+       quit
+     else
+       puts "invalid write quit to quit"
    end
-   
+ end
    def display_moves(choice)
      @moves = PokeCLI::Moves.all[choice.to_i-1]
      puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
