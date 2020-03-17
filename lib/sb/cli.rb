@@ -48,20 +48,24 @@ class PokeCLI::CLI
     
     if ("1".."10").include?(input)
       choice = input.to_i
-     @pokemon = PokeCLI::Pokemon.all[choice.to_i-1] 
+    
        
           
-        puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
-   
     
   elsif input == "quit"
     quit
   else
     battle
   end
-    
+    display_mons(choice)
   end 
   
+  def display_mons(choice)
+     @pokemon = PokeCLI::Pokemon.all[choice.to_i-1]
+     puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
+   
+     
+   end
   #  def display_stats
   # end
   
