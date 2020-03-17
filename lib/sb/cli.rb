@@ -16,18 +16,18 @@ class PokeCLI::CLI
   
   def battle
     #pokedexsymbol
-     puts "player"
+     puts "pokedex open"
     input = gets.strip.downcase
     @data = PokeCLI::API.get_pokemon(input)
     @objects = PokeCLI::Pokemon.all
   
-    display_info
+    pokedex
   end
   
   
-  def display_info
-    puts "want to know more "
-    @objects.each.with_index(1) {|player, index| puts "#{player.id}. #{player.name}  "}
+  def pokedex
+    puts "choose a mon yo"
+    PokeCLI::Pokemon.all.each.with_index(1) {|pokemon, index| puts "#{pokemon.id}. #{pokemon.name}  "}
 
    
     puts "please make a selection by index number:"

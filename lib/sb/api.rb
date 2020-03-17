@@ -4,7 +4,7 @@
  class PokeCLI::API 
    
     def self.get_pokemon(input)
-      @pokemon_hash = HTTParty.get("https://pokeapi.co/api/v2/pokemon-form/12/")
+      @pokemon_hash = HTTParty.get("https://pokeapi.co/api/v2/pokemon-form/#{input}/")
       #binding.pry
    poke_obj = {
      name: @pokemon_hash["name"],
