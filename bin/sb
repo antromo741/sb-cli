@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "sb"
 
-PokeCLI::CLI.new.battle
+PokeCLI::CLI.new.pre_battle
