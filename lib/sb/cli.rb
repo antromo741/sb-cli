@@ -27,7 +27,7 @@ class PokeCLI::CLI
   
   def display_info
     puts "want to know more "
-    @objects.each.with_index(1) {|player, index| puts "#{index}. #{player.name} is from #{player.game}"}
+    @objects.each.with_index(1) {|player, index| puts "#{player.id}. #{player.name}  "}
 
    
     puts "please make a selection by index number:"

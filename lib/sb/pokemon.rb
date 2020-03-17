@@ -2,7 +2,7 @@
 
 
 class PokeCLI::Pokemon
-  attr_accessor :name, :game
+  attr_accessor :name, :id
   @@all = []
   
  def initialize(hash)
