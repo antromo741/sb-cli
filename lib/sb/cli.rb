@@ -47,7 +47,7 @@ class PokeCLI::CLI
     input = gets.strip.downcase
     if input == "y"
         PokeCLI::Pokemon.all.each.with_index(1) do |pokemon, index|
-        puts "#{index}. #{pokemon.name}"
+        puts "#{index}. #{pokemon.name}. #{pokemon.id}"
     end
   elsif input == "n"
     battle
