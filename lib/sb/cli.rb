@@ -32,6 +32,8 @@ class PokeCLI::CLI
      input = gets.strip.downcase
     if input == "p" 
     pokedex
+    elsif input == "m"
+    poke_moves
   elsif input == quit 
     quit
   else 
@@ -39,7 +41,27 @@ class PokeCLI::CLI
     battle
   end
   end
-  #
+  
+  
+  def poke_moves
+     puts "Heres a list of some pokemon"
+    PokeCLI::Moves.all.each.with_index(1) do |moves, index|
+    puts "#{index}. #{moves.name}"
+    end
+    puts "To find out more information choose the id number"
+    puts " to exit type quit"
+    input = gets.strip.downcase
+    
+    if ("1".."10").include?(input)
+      choice = input.to_i
+  elsif input == "quit"
+    quit
+  else
+    battle
+  end
+    display_moves(choice)
+  end 
+  
   
   def pokedex
     puts "Heres a list of some pokemon"
@@ -52,10 +74,6 @@ class PokeCLI::CLI
     
     if ("1".."10").include?(input)
       choice = input.to_i
-    
-       
-          
-    
   elsif input == "quit"
     quit
   else
@@ -67,9 +85,15 @@ class PokeCLI::CLI
   def display_mons(choice)
      @pokemon = PokeCLI::Pokemon.all[choice.to_i-1]
      puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
-   
-     
+     #wait method
+     puts "Wanna see another pokemon?"
    end
+   
+   def display_moves(choice)
+     @moves = PokeCLI::Moves.all[choice.to_i-1]
+     puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
+   end
+   
   #  def display_stats
   # end
   
