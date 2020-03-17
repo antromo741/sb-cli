@@ -53,7 +53,7 @@ class PokeCLI::CLI
     input = gets.strip.downcase
     
     if ("1".."10").include?(input)
-      choice = input.to_i
+      choice == input.to_i
   elsif input == "quit"
     quit
   else
@@ -89,6 +89,7 @@ class PokeCLI::CLI
      puts "Wanna see another pokemon?"
      puts "for another mon press p"
      puts " To go back into the main menu hit A"
+     input = gets.strip.downcase
      if input = "y"
        pokedex
        elsif input == p
@@ -102,6 +103,19 @@ class PokeCLI::CLI
    def display_moves(choice)
      @moves = PokeCLI::Moves.all[choice.to_i-1]
      puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
+     puts "Wanna see another move?"
+     puts "for another move press m"
+     puts " To go back into the main menu hit A"
+     input = gets.strip.downcase
+     if input = "m"
+       pokedex
+       elsif input == a
+       battle
+       elsif input == quit
+       quit
+     else
+       puts "invalid write quit to quit"
+   end
    end
    
   #  def display_stats
