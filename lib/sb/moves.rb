@@ -1,7 +1,7 @@
 
 
-class PokeCLI::Pokemon
-  attr_accessor :name, :id, :base_experience, :height, :weight 
+class PokeCLI::Moves
+  attr_accessor :name, :accuracy, :pp, :power
   @@all = []
   
  def initialize(hash)

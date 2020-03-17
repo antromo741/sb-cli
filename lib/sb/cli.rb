@@ -60,8 +60,8 @@ class PokeCLI::CLI
     
   end 
   
-    def display_stats
-   end
+  #  def display_stats
+  # end
   
   def quit 
     puts "Goodbye"

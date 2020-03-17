@@ -1,6 +1,5 @@
-#switch to pokemon
-#lists stats 
- 
+#look for stuff I can add
+#perhaps pokeball or maybe other stats
  class PokeCLI::API 
    
     def self.get_pokemon(input)
@@ -15,14 +14,29 @@
    
      
    } 
-  #binding.pry
+  
    PokeCLI::Pokemon.new(poke_obj)
+   end
+   
+   def self.get_moves(input)
+      @pokemon_move_hash = HTTParty.get("https://pokeapi.co/api/v2/move/#{input}/")
+  move_obj = {
+    
+    name: @pokemon_move_hash["name"],
+    accuracy: @pokemon_move_hash["accuracy"],
+    pp: @pokemon_move_hash["pp"],
+    power: @pokemon_move_hash["power"],
+    
+   
+     
+   } 
+  
+   PokeCLI::Moves.new(move_obj)
    end
    
    #def self.get_type
    #end 
    
-   #def self.get_moves
-   #end
+  
    
  end
