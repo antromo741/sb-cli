@@ -14,12 +14,11 @@ class PokeCLI::CLI
   
   
   
-#  def pre_battle
-    #pokemon_array = [1,2,3,4,5]
-   # pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)
-  #  battle 
- # end
-  
+  def pre_battle
+    pokemon_array = [1,2,3,4,5]
+    pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
+    battle 
+  end
   def battle
     #pokedexsymbol
      puts "pokedex open"
