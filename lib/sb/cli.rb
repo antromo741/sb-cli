@@ -1,42 +1,59 @@
 #cli controller
 class SmashCLI::CLI
-  
+  #will do each game, api has stuff for all. you just add/ultimate or /melee 
+  #make a restart method for wrong inputs
+  #set exit to exit menu instead of goodbye
   def call
     puts "SmashBros Character Select"
     puts " /\/\/\/\/\/\/\/\/\/\/\/\/\/ "
-    puts "Choose you character!"
+    puts "Choose a name !"
     input = gets.strip.downcase
     @data = SmashCLI::API.get_characters(input)
     @objects = SmashCLI::Character.all
-    binding.pry
+   
     display_info
   end
   
   
   def display_info
-    puts "please make a selection"
-   # @objects.each do |obj|
-    #  puts "#{obj.name} -#{obj.age}"
-    #end
-    
-    input = gets.strip.downcase
+    puts "want to know more "
+    @objects.each.with_index(1) {|player, index| puts "#{index}. #{player.name} is from #{player.game}"}
+
    
-    if input == "player"
-      puts "============Charachters-list============"
-      puts "LIST OF PLAYERS/OBJECTS"
-      #@obj = @objects[0]
-     # puts "#{obj.salary}, #{obj.upcoming_film}"      
+    puts "please make a selection by index number:"
+    
+input = gets.strip.downcase
+   
+         if (input.to_i > 0)
+        
+     # @player = @objects[input.to_i - 1]
+      
+      puts "#{@player.name}" 
+      #binding.pry
       display_info
       
-    elsif input == "game"
-      puts "============GAME-LIST============"
-      puts "LIST OF GAMES/OBJECTS"
+      elsif 
+     
+      #@player = @objects[input.to_i - 2]
+      
+      puts "#{@player.game}"
       display_info
       
-    else
-      puts "goodbye"
-  end
+    elsif (input == "quit")
+      quit
+      
+    elsif (input == "menu")
+      start
+    else 
+      puts "Oops"
+      display_info
+    end 
+    
+  end 
+
+  def quit 
+    puts "Goodbye"
+  end 
+
 end
-  #make a restart method for wrong inputs
-  #set exit to exit menu instead of goodbye
-end
+  

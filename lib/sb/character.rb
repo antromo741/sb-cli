@@ -1,5 +1,5 @@
 class SmashCLI::Character
-  attr_accessor :name, :game #:move
+  attr_accessor :name, :game
   @@all =[]
   
  def initialize(hash)

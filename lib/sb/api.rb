@@ -11,10 +11,14 @@
       @characters_hash = HTTParty.get("https://api.kuroganehammer.com/api/characters/name/#{input}")
    
    
+   
+   # if @characters_hash["Error"]
+   
+   
    char_obj = {
      name: @characters_hash["Name"],
-     game: @characters_hash["Game"],
-    # moves: @characters_hash["Moves"]
+     game: @characters_hash["Game"]
+    #moves: @characters_hash["Moves"]
      
    }
    SmashCLI::Character.new(char_obj)
