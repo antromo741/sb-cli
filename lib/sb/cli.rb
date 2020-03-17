@@ -49,8 +49,8 @@ class PokeCLI::CLI
      @pokemon = PokeCLI::Pokemon.all[choice.to_i-1] 
        
           
-        puts "#{@pokemon.name}. #{@pokemon.id}"
-  
+        puts "#{@pokemon.name}. #{@pokemon.id}. #{@pokemon.base_experience}. #{@pokemon.height} . #{@pokemon.weight}"
+   
     
   elsif input == "quit"
     quit
