@@ -15,7 +15,7 @@ class PokeCLI::CLI
   
   
   def pre_battle
-    pokemon_array = [1,2,3,4,5]
+    pokemon_array = [7,28,68,19,150]
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
     moves_array = [1,2,3,4,5]
     moves_array.map { |index| PokeCLI::API.get_moves(index)}
@@ -25,25 +25,29 @@ class PokeCLI::CLI
   
   def battle
     #pokedexsymbol
-     puts "pokedex open"
-     puts "choose p for pokedex"
+     puts "Pokedex open"
+     puts "To look at some pokemon hit P"
+     puts "To see a list of moves and their stats hit M"
+     puts "To exit, type exit"
      input = gets.strip.downcase
     if input == "p" 
     pokedex
-  else 
+  elsif input == quit 
     quit
+  else 
+    puts "not an option back in the main menu"
+    battle
   end
   end
   #
   
   def pokedex
-    puts "Heres a list of every pokemon"
+    puts "Heres a list of some pokemon"
     PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
     puts "#{index}. #{poke.name}"
     end
     puts "To find out more information choose the id number"
     puts " to exit type quit"
-    puts " invalid response should boot out"
     input = gets.strip.downcase
     
     if ("1".."10").include?(input)
