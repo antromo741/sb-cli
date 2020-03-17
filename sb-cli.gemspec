@@ -5,12 +5,12 @@ require "sb//version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sb-cli"
-  spec.version       = SmashCLI::VERSION
+  spec.version       = PokeCLI::VERSION
   spec.authors       = ["'careful-illustrator-5297'"]
   spec.email         = ["'anthonyroma741@gmail.com'"]
 
-  spec.summary       =  "Stuff about smash charachters"
-  spec.description   = "Stuff about smash charachters"
+  spec.summary       =  "Will give a pokedex of original pokemon"
+  spec.description   = "Has 151 pokemon and all the stats"
   spec.homepage      = "https://github.com/antromo741/sb-cli"
   spec.license       = "MIT"
 

@@ -1,6 +1,6 @@
 #cli controller
-class SmashCLI::CLI
-  #will do each game, api has stuff for all. you just add/ultimate or /melee 
+class PokeCLI::CLI
+ 
   #make a restart method for wrong inputs
   #set exit to exit menu instead of goodbye
   #THINGS I NEED 
@@ -16,10 +16,11 @@ class SmashCLI::CLI
   
   def battle
     #pokedexsymbol
+     puts "player"
     input = gets.strip.downcase
-    @data = SmashCLI::API.get_characters(input)
-    @objects = SmashCLI::Character.all
-   puts "player"
+    @data = PokeCLI::API.get_pokemon(input)
+    @objects = PokeCLI::Pokemon.all
+  
     display_info
   end
   

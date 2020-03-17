@@ -1,9 +1,9 @@
 #switch to pokemon pokedex
 
 
-class SmashCLI::Character
+class PokeCLI::Pokemon
   attr_accessor :name, :game
-  @@all =[]
+  @@all = []
   
  def initialize(hash)
     hash.each {|key, value| self.send(("#{key}="), value)}

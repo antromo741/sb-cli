@@ -1,23 +1,23 @@
 #switch to pokemon
 #lists stats 
  
- class SmashCLI::API 
+ class PokeCLI::API 
    
-    def self.get_characters(input)
-      @characters_hash = HTTParty.get("https://api.kuroganehammer.com/api/characters/name/#{input}")
-   
-   
+    def self.get_pokemon(input)
+      @pokemon_hash = HTTParty.get("https://api.kuroganehammer.com/api/characters/name/#{input}")
    
    
    
    
-   char_obj = {
-     name: @characters_hash["Name"],
-     game: @characters_hash["Game"]
+   
+   
+   poke_obj = {
+     name: @pokemon_hash["Name"],
+     game: @pokemon_hash["Game"]
    
      
    }
-   SmashCLI::Character.new(char_obj)
+   PokeCLI::Pokemon.new(poke_obj)
    end
    
    
