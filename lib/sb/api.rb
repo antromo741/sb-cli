@@ -1,9 +1,5 @@
-# find an api to use 
-#find a url and set it 
-#build some hashes for obj 
-#call custom class . new method 
-# send those back to our cli 
- 
+#switch to pokemon
+#lists stats 
  
  class SmashCLI::API 
    
@@ -12,13 +8,13 @@
    
    
    
-   # if @characters_hash["Error"]
+   
    
    
    char_obj = {
      name: @characters_hash["Name"],
      game: @characters_hash["Game"]
-    #moves: @characters_hash["Moves"]
+   
      
    }
    SmashCLI::Character.new(char_obj)

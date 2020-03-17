@@ -14,14 +14,12 @@ class SmashCLI::CLI
   
   
   
-  def call
-    puts "SmashBros Character Select"
-    puts " /\/\/\/\/\/\/\/\/\/\/\/\/\/ "
-    puts "Choose a name !"
+  def battle
+    #pokedexsymbol
     input = gets.strip.downcase
     @data = SmashCLI::API.get_characters(input)
     @objects = SmashCLI::Character.all
-   
+   puts "player"
     display_info
   end
   
@@ -41,7 +39,7 @@ input = gets.strip.downcase
       
       puts "#{@player.name}" 
       #binding.pry
-      display_info
+      #display_info
       
     elsif (input == "quit")
       quit
@@ -58,6 +56,10 @@ input = gets.strip.downcase
   def quit 
     puts "Goodbye"
   end 
+
+#def pokedexsymbol
+#end
+
 
 end
   

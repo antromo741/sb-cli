@@ -1,3 +1,6 @@
+#switch to pokemon pokedex
+
+
 class SmashCLI::Character
   attr_accessor :name, :game
   @@all =[]
