@@ -3,6 +3,17 @@ class SmashCLI::CLI
   #will do each game, api has stuff for all. you just add/ultimate or /melee 
   #make a restart method for wrong inputs
   #set exit to exit menu instead of goodbye
+  #THINGS I NEED 
+  #menu with user interface
+  #brings you to a pokedex, first 151 pokemon
+  #displays type, hp, attack, spec attack, def, spec def, speed
+  #build a team 
+  #menu displays a pokeball or something 
+  #battle lol 
+  #heal 
+  
+  
+  
   def call
     puts "SmashBros Character Select"
     puts " /\/\/\/\/\/\/\/\/\/\/\/\/\/ "
@@ -26,17 +37,10 @@ input = gets.strip.downcase
    
          if (input.to_i > 0)
         
-     # @player = @objects[input.to_i - 1]
+     @player = @objects[input.to_i - 1]
       
       puts "#{@player.name}" 
       #binding.pry
-      display_info
-      
-      elsif 
-     
-      #@player = @objects[input.to_i - 2]
-      
-      puts "#{@player.game}"
       display_info
       
     elsif (input == "quit")
