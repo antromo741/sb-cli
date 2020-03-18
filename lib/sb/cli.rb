@@ -12,8 +12,19 @@ class PokeCLI::CLI
   #battle lol 
   #heal 
   
-  
-  
+  def starting_menu
+      puts "Welcome, I am your Pokedex...."
+      puts "This is the main menu"
+      puts "*Pokedex open*"
+      puts "To look at some pokemon hit P"
+      puts "To see a list of moves and their stats hit M"
+      puts "To exit, type exit"
+    end
+    
+    def pokedexsymbol
+      
+    end
+    
   def pre_battle
     pokemon_array = [7,28,68,19,150]
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
@@ -25,10 +36,7 @@ class PokeCLI::CLI
   
   def battle
     #pokedexsymbol
-     puts "Pokedex open"
-     puts "To look at some pokemon hit P"
-     puts "To see a list of moves and their stats hit M"
-     puts "To exit, type exit"
+    starting_menu
      input = gets.strip.downcase
     if input == "p" 
     pokedex
@@ -122,9 +130,10 @@ class PokeCLI::CLI
   # end
   
   def quit 
-    puts "Goodbye"
+    puts "*Pokedex Off*"
   end 
-
+    
+    
 #def pokedexsymbol
 #end
 
