@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'careful-illustrator-5297'"]
   spec.email         = ["'anthonyroma741@gmail.com'"]
 
-  spec.summary       =  "Will give a pokedex of original pokemon"
-  spec.description   = "Has 151 pokemon and all the stats"
+  spec.summary       =  "Gem that contains a usuable pokedex"
+  spec.description   = "Has 151 pokemon and all the stats as well as some moves"
   spec.homepage      = "https://github.com/antromo741/sb-cli"
   spec.license       = "MIT"
 
