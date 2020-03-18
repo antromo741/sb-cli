@@ -11,11 +11,13 @@ class PokeCLI::CLI
   #menu displays a pokeball or something 
   #battle lol 
   #heal 
+  #clean up code, make look neat
+  #label everything
   
   def starting_menu
+      puts "*Pokedex open*"
       puts "Welcome, I am your Pokedex...."
       puts "This is the main menu"
-      puts "*Pokedex open*"
       puts "To look at some pokemon hit P"
       puts "To see a list of moves and their stats hit M"
       puts "To exit, type exit"
@@ -34,118 +36,119 @@ class PokeCLI::CLI
   end
   
   
-  def battle
-    #pokedexsymbol
-    starting_menu
-     input = gets.strip.downcase
-    if input == "p" 
-    pokedex
-    elsif input == "m"
-    poke_moves
-  elsif input == "exit" 
-    quit
-  else 
-    #should put a cleaner method here
-    puts "not an option back in the main menu"
-    battle
-  end
-  end
+      def battle
+        #pokedexsymbol
+          starting_menu
+          input = gets.strip.downcase
+          if input == "p" 
+              pokedex
+          elsif input == "m"
+              poke_moves
+          elsif input == "exit" 
+              quit
+          else 
+              to_menu
+        end
+      end
   
-  
-  def poke_moves
-     puts "Heres a list of some pokemon"
-    PokeCLI::Moves.all.each.with_index(1) do |moves, index|
-    puts "#{index}. #{moves.name}"
-    end
-    puts "To find out more information choose the id number"
-    puts " to exit type quit"
-    input = gets.strip.downcase
+      def pokedex
+          puts "Heres a list of some pokemon"
+            PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
+          puts "#{index}. #{poke.name}"
+        end
+          puts "To find out more information choose the id number"
+          puts " to exit type quit"
+          input = gets.strip.downcase
     
-    if ("1".."10").include?(input)
-      choice = input.to_i
-  elsif input == "quit"
-    quit
-  else
-    #shuld put a method to jump back
-    puts "invalid input back to main menu"
-    battle
-    
-  end
-    display_moves(choice)
-  end 
+        if ("1".."10").include?(input)
+          choice = input.to_i
+        elsif input == "quit"
+          quit
+        else
+          #back method here
+        puts "invalid back to main menu"
+          battle
+        end
+          display_mons(choice)
+        end 
   
-  
-  def pokedex
-    puts "Heres a list of some pokemon"
-    PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
-    puts "#{index}. #{poke.name}"
-    end
-    puts "To find out more information choose the id number"
-    puts " to exit type quit"
-    input = gets.strip.downcase
-    
-    if ("1".."10").include?(input)
-      choice = input.to_i
-  elsif input == "quit"
-    quit
-  else
-    #back method here
-    puts "invalid back to main menu"
-    battle
-  end
-    display_mons(choice)
-  end 
-  
-  def display_mons(choice)
-     @pokemon = PokeCLI::Pokemon.all[choice.to_i-1]
-     puts "ID: #{@pokemon.id} , Name: #{@pokemon.name.upcase} , Base Experience: #{@pokemon.base_experience} , Height: #{@pokemon.height} , Weight: #{@pokemon.weight}"
+      def display_mons(choice)
+          @pokemon = PokeCLI::Pokemon.all[choice.to_i-1]
+          puts "ID: #{@pokemon.id}"
+          puts "Name: #{@pokemon.name.upcase}"
+          puts "Base Experience: #{@pokemon.base_experience}"
+          puts "Height: #{@pokemon.height}"
+          puts "Weight: #{@pokemon.weight}"
      #wait method
-     puts "Wanna see another pokemon?"
-     puts "for another mon press p"
-     puts " To go back into the main menu hit a"
-     input = gets.strip.downcase
-     if input == "p"
-       pokedex
-       elsif input == "a"
-       battle
-       elsif input == "quit"
-       quit
-     else
-       puts "invalid back to main menu"
-   end
- end
-   def display_moves(choice)
-     @moves = PokeCLI::Moves.all[choice.to_i-1]
-     puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
-     puts "Wanna see another move?"
-     puts "for another move press m"
-     puts " To go back into the main menu hit A"
-     input = gets.strip.downcase
-     if input == "m"
-       poke_moves
-       elsif input == "a"
-       battle
-       elsif input == "quit"
-       quit
-     else
-       puts "invalid back to main menu"
-       battle
-   end
-   end
-   
-  #  def display_stats
-  # end
+          puts "Wanna see another pokemon?"
+          puts "-------------------------"
+          puts "For another mon press p"
+          puts "To go back into the main menu hit a"
+          puts "To quit type quit"
+          input = gets.strip.downcase
+          if input == "p"
+              pokedex
+          elsif input == "a"
+              battle
+          elsif input == "quit"
+              quit
+          else
+              to_menu
+          end
+        end  
   
-  def quit 
-    puts "*Pokedex Off*"
-  end 
+        def poke_moves
+            puts "Heres a list of some moves"
+            PokeCLI::Moves.all.each.with_index(1) do |moves, index|
+            puts "#{index}. #{moves.name}"
+        end
+            puts "To find out more information choose the id number"
+            puts " to exit type quit"
+            input = gets.strip.downcase
     
-    def to_menu
-      puts "Invalid response back to Pokedex menu"
-    end
+            if ("1".."10").include?(input)
+                choice = input.to_i
+            elsif input == "quit"
+                quit
+            else
+                to_menu
+            end
+                display_moves(choice)
+            end 
+
+        def display_moves(choice)
+          @moves = PokeCLI::Moves.all[choice.to_i-1]
+          puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
+          puts "Wanna see another move?"
+          puts "for another move press m"
+          puts " To go back into the main menu hit A"
+          input = gets.strip.downcase
+        if input == "m"
+          poke_moves
+        elsif input == "a"
+          battle
+        elsif input == "quit"
+          quit
+        else
+          puts "try again"
+          display_mons
+        end
+      end
+   
+    #  def display_stats
+    # end
+  
+        def quit 
+          puts "*Pokedex Off*"
+        end 
+    
+        def to_menu
+          puts "Invalid response back to Pokedex menu"
+          battle
+        end
     
 #def pokedexsymbol
 #end
 
 
-end
+  end
