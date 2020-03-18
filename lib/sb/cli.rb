@@ -42,11 +42,12 @@ class PokeCLI::CLI
     pokedex
     elsif input == "m"
     poke_moves
-  elsif input == quit 
+  elsif input == "exit" 
     quit
   else 
+    #should put a cleaner method here
     puts "not an option back in the main menu"
-    #battle
+    battle
   end
   end
   
@@ -65,7 +66,10 @@ class PokeCLI::CLI
   elsif input == "quit"
     quit
   else
+    #shuld put a method to jump back
+    puts "invalid input back to main menu"
     battle
+    
   end
     display_moves(choice)
   end 
@@ -85,6 +89,8 @@ class PokeCLI::CLI
   elsif input == "quit"
     quit
   else
+    #back method here
+    puts "invalid back to main menu"
     battle
   end
     display_mons(choice)
@@ -102,10 +108,10 @@ class PokeCLI::CLI
        pokedex
        elsif input == "a"
        battle
-       elsif input == quit
+       elsif input == "quit"
        quit
      else
-       puts "invalid write quit to quit"
+       puts "invalid back to main menu"
    end
  end
    def display_moves(choice)
@@ -119,10 +125,11 @@ class PokeCLI::CLI
        poke_moves
        elsif input == "a"
        battle
-       elsif input == quit
+       elsif input == "quit"
        quit
      else
-       puts "invalid write quit to quit"
+       puts "invalid back to main menu"
+       battle
    end
    end
    
@@ -133,6 +140,9 @@ class PokeCLI::CLI
     puts "*Pokedex Off*"
   end 
     
+    def to_menu
+      puts "Invalid response back to Pokedex menu"
+    end
     
 #def pokedexsymbol
 #end
