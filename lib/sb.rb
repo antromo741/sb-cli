@@ -8,7 +8,7 @@ require "sb/moves"
 # dependencies 
 require "pry"
 require "httparty"
-
+require "rainbow"
 
 module PokeCLI
   class Error < StandardError; end
