@@ -2,9 +2,13 @@
 #perhaps pokeball or maybe other stats
  class PokeCLI::API 
    
-    def self.get_pokemon(input)
-      @pokemon_hash = HTTParty.get("https://pokeapi.co/api/v2/pokemon/#{input}/")
-  poke_obj = {
+    def self.get_pokemon
+      
+    
+    pokemon_array = [7,28,68,19,150]                              
+    pokemon_array.map { |index| @pokemon_hash = HTTParty.get("https://pokeapi.co/api/v2/pokemon/#{index}/") 
+    
+    poke_obj = {
     
     name: @pokemon_hash["name"],
     id: @pokemon_hash["id"],
@@ -13,9 +17,12 @@
     weight: @pokemon_hash["weight"],
    
      
-   } 
+   }
+   PokeCLI::Pokemon.new(poke_obj) 
+      
+    } 
   
-   PokeCLI::Pokemon.new(poke_obj)
+  
    end
    
    def self.get_moves(input)

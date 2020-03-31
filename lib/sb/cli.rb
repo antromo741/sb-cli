@@ -15,8 +15,9 @@ class PokeCLI::CLI
   #wrong id input failure need to fix
   
   def pre_battle
-    pokemon_array = [7,28,68,19,150]                              #here you can change what mons are listed
-    pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
+  PokeCLI::API.get_pokemon
+   # pokemon_array = [7,28,68,19,150]                              #here you can change what mons are listed
+   # pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
     moves_array = [1,2,3,4,5]
     moves_array.map { |index| PokeCLI::API.get_moves(index)}      #you can also change what moves are listed
     pokedexsymbol
@@ -52,6 +53,8 @@ class PokeCLI::CLI
         puts Rainbow("   \                    /   ").white
         puts Rainbow("    \__________________/    ").white
     end
+    
+    
     #menu sequence
       def battle
         #pokedexsymbol

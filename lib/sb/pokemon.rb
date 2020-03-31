@@ -8,7 +8,14 @@ class PokeCLI::Pokemon
     hash.each {|key, value| self.send(("#{key}="), value)}
     save 
   end
-
+  
+  def name=(name)
+   @name = name
+  end
+  
+  def name 
+    @name 
+  end
 
   def self.all 
   @@all
