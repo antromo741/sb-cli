@@ -77,9 +77,8 @@ class PokeCLI::CLI
         elsif input == "exit"
           quit
         else
-          
-        puts "invalid option try again or type exit"
-          pokedex
+          sleep 1 
+          to_pokedex
         end
           display_mons(choice)
         end 
@@ -113,6 +112,7 @@ class PokeCLI::CLI
           elsif input == "exit"
               quit
           else
+            sleep 1
               to_pokedex
           end
         end  
@@ -167,32 +167,32 @@ class PokeCLI::CLI
    
         def loading                     #giving the menu loading times to make it look cleaner and more realistic
           sleep 1
-          puts "*Pokedex Proccessing*"
+          puts Rainbow("*Pokedex Proccessing*").green
           sleep 1
-          puts "Loading..."
+          puts Rainbow("Loading...").green
           sleep 1
         end
         
         def quit 
           #loading                                            #simple quit method
-          puts "*Pokedex Off*"
+          puts Rainbow("*Pokedex Off*").red
           exit
         end 
     
         def to_menu                                           #Error message for invalid response
-          puts "Invalid response back to Pokedex menu"
+          puts Rainbow("Invalid response back to Pokedex menu").yellow
           battle
         end
         
         def to_pokedex                                        #Error message for wrong pokemon selection
           sleep 1
-          puts "Invalid response, try again or type exit."
+          puts Rainbow("Invalid response, try again or type exit.").yellow
           pokedex
         end
         
         def to_moves
           sleep 1
-          puts "Invalid response, try again or type exit."
+          puts Rainbow("Invalid response, try again or type exit.").yellow
           poke_moves
           sleep 1
         end
