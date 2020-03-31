@@ -67,10 +67,10 @@ class PokeCLI::CLI
           puts "#{index}. #{poke.name}"
           sleep 1
         end
-        sleep 1
-          puts "To find out more information choose the id number"
           sleep 1
-          puts " to exit type exit"
+            puts "To find out more information choose the id number"
+          sleep 1
+            puts " to exit type exit"
           input = gets.strip.downcase
     
         if ("1".."10").include?(input)
@@ -78,7 +78,7 @@ class PokeCLI::CLI
         elsif input == "exit"
           quit
         else
-          #back method here
+          
         puts "invalid option try again or type exit"
           pokedex
         end
@@ -144,15 +144,15 @@ class PokeCLI::CLI
           quit
         else
           puts "try again"
-          display_mons
+          display_moves
         end
       end
    
         def loading                     #giving the menu loading times to make it look cleaner and more realistic
           sleep 1
-          puts "Loading..."
+          puts "Loading Pokemon"
           sleep 1
-          puts "Still Loading....."
+          puts "Loading stuff"
           sleep 1
         end
         
