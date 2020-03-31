@@ -15,10 +15,10 @@ class PokeCLI::CLI
   #wrong id input failure need to fix
   
   def pre_battle
-    pokemon_array = [7,28,68,19,150]
+    pokemon_array = [7,28,68,19,150]                              #here you can change what mons are listed
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
     moves_array = [1,2,3,4,5]
-    moves_array.map { |index| PokeCLI::API.get_moves(index)}
+    moves_array.map { |index| PokeCLI::API.get_moves(index)}      #you can also change what moves are listed
     pokedexsymbol
     battle 
   end
@@ -39,7 +39,7 @@ class PokeCLI::CLI
       sleep 1
       puts "To exit the program, type exit."
     end
-    
+    #ruby cant read \ need to fix
     def pokedexsymbol
         puts Rainbow("     __________________     ").red
         puts Rainbow("    /                  \    ").red
@@ -52,7 +52,7 @@ class PokeCLI::CLI
         puts Rainbow("   \                    /   ").white
         puts Rainbow("    \__________________/    ").white
     end
-    
+    #menu sequence
       def battle
         #pokedexsymbol
           starting_menu
@@ -68,6 +68,8 @@ class PokeCLI::CLI
         end
       end
   
+  
+  #pokemon part of the code
       def pokedex
         loading
           puts "Heres a list of some pokemon"
@@ -82,7 +84,7 @@ class PokeCLI::CLI
             puts "To exit type exit."
           input = gets.strip.downcase
     
-        if ("1".."5").include?(input)
+        if ("1".."5").include?(input)      #can change this to include a larger selection if I allowed array to be bigger
           choice = input.to_i
         elsif input == "exit"
           quit
@@ -126,6 +128,9 @@ class PokeCLI::CLI
               to_pokedex
           end
         end  
+  
+  
+  #Moves section of code
   
         def poke_moves
             puts "Heres a list of some moves!"
@@ -175,6 +180,8 @@ class PokeCLI::CLI
         end
       end
    
+   
+   #All of my different errors and loading screens
         def loading                     #giving the menu loading times to make it look cleaner and more realistic
           sleep 1
           puts Rainbow("*Pokedex Proccessing*").green
