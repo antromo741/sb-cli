@@ -9,24 +9,12 @@ class PokeCLI::CLI
   #displays type, hp, attack, spec attack, def, spec def, speed
   #build a team 
   #menu displays a pokeball or something 
-  #battle lol 
   #heal 
   #clean up code, make look neat
   #label everything
+  #reorder everything
   
-  def starting_menu
-      puts "*Pokedex open*"
-      puts "Welcome, I am your Pokedex...."
-      puts "This is the main menu"
-      puts "To look at some pokemon hit P"
-      puts "To see a list of moves and their stats hit M"
-      puts "To exit, type exit"
-    end
-    
-    def pokedexsymbol
-      
-    end
-    
+  
   def pre_battle
     pokemon_array = [7,28,68,19,150]
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
@@ -35,7 +23,27 @@ class PokeCLI::CLI
     battle 
   end
   
-  
+  def starting_menu
+   
+    loading
+   
+      puts "*Pokedex open*"
+      sleep 1
+      puts "Welcome, I am your Pokedex...."
+      sleep 1
+      puts "This is the main menu"
+      sleep 1
+      puts "To look at some pokemon hit P"
+      sleep 1
+      puts "To see a list of moves and their stats hit M"
+      sleep 1
+      puts "To exit, type exit"
+    end
+    
+    def pokedexsymbol
+      
+    end
+    
       def battle
         #pokedexsymbol
           starting_menu
@@ -52,22 +60,27 @@ class PokeCLI::CLI
       end
   
       def pokedex
+        loading
           puts "Heres a list of some pokemon"
+          sleep 1
             PokeCLI::Pokemon.all.each.with_index(1) do |poke, index|
           puts "#{index}. #{poke.name}"
+          sleep 1
         end
+        sleep 1
           puts "To find out more information choose the id number"
-          puts " to exit type quit"
+          sleep 1
+          puts " to exit type exit"
           input = gets.strip.downcase
     
         if ("1".."10").include?(input)
           choice = input.to_i
-        elsif input == "quit"
+        elsif input == "exit"
           quit
         else
           #back method here
-        puts "invalid back to main menu"
-          battle
+        puts "invalid option try again or type exit"
+          pokedex
         end
           display_mons(choice)
         end 
@@ -90,10 +103,10 @@ class PokeCLI::CLI
               pokedex
           elsif input == "a"
               battle
-          elsif input == "quit"
+          elsif input == "exit"
               quit
           else
-              to_menu
+              to_pokedex
           end
         end  
   
@@ -103,12 +116,12 @@ class PokeCLI::CLI
             puts "#{index}. #{moves.name}"
         end
             puts "To find out more information choose the id number"
-            puts " to exit type quit"
+            puts " to exit type exit"
             input = gets.strip.downcase
     
             if ("1".."10").include?(input)
                 choice = input.to_i
-            elsif input == "quit"
+            elsif input == "exit"
                 quit
             else
                 to_menu
@@ -127,7 +140,7 @@ class PokeCLI::CLI
           poke_moves
         elsif input == "a"
           battle
-        elsif input == "quit"
+        elsif input == "exit"
           quit
         else
           puts "try again"
@@ -135,20 +148,28 @@ class PokeCLI::CLI
         end
       end
    
-    #  def display_stats
-    # end
-  
+        def loading                     #giving the menu loading times to make it look cleaner and more realistic
+          sleep 1
+          puts "Loading..."
+          sleep 1
+          puts "Still Loading....."
+          sleep 1
+        end
+        
         def quit 
+          #loading                                            #simple quit method
           puts "*Pokedex Off*"
+          exit
         end 
     
-        def to_menu
+        def to_menu                                           #Error message for invalid response
           puts "Invalid response back to Pokedex menu"
           battle
         end
-    
-#def pokedexsymbol
-#end
-
-
+        
+        def to_pokedex                                        #Error message for wrong pokemon selection
+          puts "Invalid response back to the pokemon list"
+          pokedex
+        end
+      
   end
