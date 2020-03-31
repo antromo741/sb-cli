@@ -19,6 +19,7 @@ class PokeCLI::CLI
     pokemon_array.map { |index| PokeCLI::API.get_pokemon(index)}
     moves_array = [1,2,3,4,5]
     moves_array.map { |index| PokeCLI::API.get_moves(index)}
+    pokedexsymbol
     battle 
   end
   
@@ -40,7 +41,16 @@ class PokeCLI::CLI
     end
     
     def pokedexsymbol
-      
+        puts Rainbow("     __________________     ").red
+        puts Rainbow("    /                  \    ").red
+        puts Rainbow("   /                    \   ").red
+        puts Rainbow("  /                      \  ").red
+        puts Rainbow(" /_________/----\ _________\ ").black 
+        puts Rainbow(" |_________  ()  _________| ").black
+        puts Rainbow(" \           \----/        / ").black
+        puts Rainbow("  \                      /  ").white
+        puts Rainbow("   \                    /   ").white
+        puts Rainbow("    \__________________/    ").white
     end
     
       def battle
