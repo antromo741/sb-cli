@@ -9,11 +9,10 @@ class PokeCLI::CLI
   #displays type, hp, attack, spec attack, def, spec def, speed
   #build a team 
   #menu displays a pokeball or something 
-  #heal 
   #clean up code, make look neat
   #label everything
   #reorder everything
-  
+  #wrong id input failure need to fix
   
   def pre_battle
     pokemon_array = [7,28,68,19,150]
@@ -73,7 +72,7 @@ class PokeCLI::CLI
             puts "To exit type exit."
           input = gets.strip.downcase
     
-        if ("1".."10").include?(input)
+        if ("1".."5").include?(input)
           choice = input.to_i
         elsif input == "exit"
           quit
@@ -130,7 +129,7 @@ class PokeCLI::CLI
             puts "To exit the program type exit."
             input = gets.strip.downcase
     
-            if ("1".."10").include?(input)
+            if ("1".."5").include?(input)
                 choice = input.to_i
             elsif input == "exit"
                 quit
@@ -145,13 +144,15 @@ class PokeCLI::CLI
           sleep 1
           puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
           sleep 1
-          puts "-------------------------"
-          sleep 1
+          puts "-----------------------------------"
           puts "Do you want to choose another move?"
+          puts "-----------------------------------"
           sleep 1
           puts "For another move type M"
           sleep 1
           puts "To go back into the main menu type A"
+          sleep 1
+          puts "To exit the program, type exit."
           input = gets.strip.downcase
         if input == "m"
           poke_moves
@@ -160,8 +161,7 @@ class PokeCLI::CLI
         elsif input == "exit"
           quit
         else
-          puts "try again"
-          display_moves
+          to_moves
         end
       end
    
@@ -185,13 +185,16 @@ class PokeCLI::CLI
         end
         
         def to_pokedex                                        #Error message for wrong pokemon selection
+          sleep 1
           puts "Invalid response, try again or type exit."
           pokedex
         end
         
         def to_moves
+          sleep 1
           puts "Invalid response, try again or type exit."
           poke_moves
+          sleep 1
         end
         
   end
