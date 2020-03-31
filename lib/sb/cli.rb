@@ -31,13 +31,13 @@ class PokeCLI::CLI
       sleep 1
       puts "Welcome, I am your Pokedex...."
       sleep 1
-      puts "This is the main menu"
+      puts "This is the main menu."
       sleep 1
-      puts "To look at some pokemon hit P"
+      puts "To look at some pokemon type P."
       sleep 1
-      puts "To see a list of moves and their stats hit M"
+      puts "To see a list of moves and their stats type M."
       sleep 1
-      puts "To exit, type exit"
+      puts "To exit the program, type exit."
     end
     
     def pokedexsymbol
@@ -68,9 +68,9 @@ class PokeCLI::CLI
           sleep 1
         end
           sleep 1
-            puts "To find out more information choose the id number"
+            puts "To find out more information choose the id number."
           sleep 1
-            puts " to exit type exit"
+            puts "To exit type exit."
           input = gets.strip.downcase
     
         if ("1".."10").include?(input)
@@ -87,17 +87,25 @@ class PokeCLI::CLI
   
       def display_mons(choice)
           @pokemon = PokeCLI::Pokemon.all[choice.to_i-1]
+          sleep 1
           puts "ID: #{@pokemon.id}"
-          puts "Name: #{@pokemon.name.upcase}"
+          sleep 1
+          puts "Name: #{@pokemon.name.upcase}" 
+          sleep 1
           puts "Base Experience: #{@pokemon.base_experience}"
-          puts "Height: #{@pokemon.height}"
+          sleep 1
+          puts "Height: #{@pokemon.height}" 
+          sleep 1
           puts "Weight: #{@pokemon.weight}"
-     #wait method
+          sleep 1
+          puts "-------------------------"
           puts "Wanna see another pokemon?"
           puts "-------------------------"
-          puts "For another mon press p"
-          puts "To go back into the main menu hit a"
-          puts "To quit type quit"
+          puts "For another Pokemon press P."
+          sleep 1
+          puts "To go back into the main menu hit A."
+          sleep 1
+          puts "To quit the program type exit."
           input = gets.strip.downcase
           if input == "p"
               pokedex
@@ -111,12 +119,15 @@ class PokeCLI::CLI
         end  
   
         def poke_moves
-            puts "Heres a list of some moves"
+            puts "Heres a list of some moves!"
             PokeCLI::Moves.all.each.with_index(1) do |moves, index|
+              sleep 1
             puts "#{index}. #{moves.name}"
         end
-            puts "To find out more information choose the id number"
-            puts " to exit type exit"
+              sleep 1
+            puts "To find out more information choose the id number."
+              sleep 1
+            puts "To exit the program type exit."
             input = gets.strip.downcase
     
             if ("1".."10").include?(input)
@@ -124,17 +135,23 @@ class PokeCLI::CLI
             elsif input == "exit"
                 quit
             else
-                to_menu
+                to_moves
             end
                 display_moves(choice)
             end 
 
         def display_moves(choice)
           @moves = PokeCLI::Moves.all[choice.to_i-1]
+          sleep 1
           puts "Name: #{@moves.name.upcase} , Accuracy: #{@moves.accuracy} , PP: #{@moves.pp} , Power: #{@moves.power}"
-          puts "Wanna see another move?"
-          puts "for another move press m"
-          puts " To go back into the main menu hit A"
+          sleep 1
+          puts "-------------------------"
+          sleep 1
+          puts "Do you want to choose another move?"
+          sleep 1
+          puts "For another move type M"
+          sleep 1
+          puts "To go back into the main menu type A"
           input = gets.strip.downcase
         if input == "m"
           poke_moves
@@ -150,9 +167,9 @@ class PokeCLI::CLI
    
         def loading                     #giving the menu loading times to make it look cleaner and more realistic
           sleep 1
-          puts "Loading Pokemon"
+          puts "*Pokedex Proccessing*"
           sleep 1
-          puts "Loading stuff"
+          puts "Loading..."
           sleep 1
         end
         
@@ -168,8 +185,13 @@ class PokeCLI::CLI
         end
         
         def to_pokedex                                        #Error message for wrong pokemon selection
-          puts "Invalid response back to the pokemon list"
+          puts "Invalid response, try again or type exit."
           pokedex
         end
-      
+        
+        def to_moves
+          puts "Invalid response, try again or type exit."
+          poke_moves
+        end
+        
   end
