@@ -1,11 +1,11 @@
 # Sb::Cli
 Hello Welcome to my Pokedex Read-Me
-This is a Pokedex Gem that has the ability to show pokemon in a list and some details about them. 
-Within this gem we can also look up some moves and move stats
-The list is limited to the first 151 pokemon, but can wasily be tweaked to show all
+This is a Pokedex Gem that has the ability to show pokemon in a list and display some details about them. 
+Within this gem we can also look up some pokemon moves along with move stats.
+The list is limited to the first 151 pokemon, but can easily be tweaked to show them all.
+
 -coming soon-
-Planning on adding types of pokeballs as well as sorting types with the correct pokemon
-as well as adding a team builder
+adding a team builder
 
 
 ## Installation
@@ -26,11 +26,11 @@ Or install it yourself as:
 
 ## Usage
 
-After installing the gem, you can run it by typing ./bin/sb which will open the 
-pokedex and give a list of propmpts. We can look at pokemon as well as several moves.
+After installing the gem, you can run it by typing ./bin/sb which will start the pokedex. You will be given a list of propmpts, choose one to continue on. You can choose to view pokemon or pokemon moves.
 
-To get rid of the limit on pokemon being listed just change out the arrays that are uncommented 
-with the ones being usedin the pre battle method.
+To quit the program at any time just simply type exit to quit the program.
+
+To get rid of the limit on pokemon being listed just change out the arrays that are uncommented with the ones being usedin the pre battle method.
 
 ## Development
 
